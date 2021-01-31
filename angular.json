@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "ibcs-bank-app"
+  "defaultProject": "ibcs-bank-app",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
