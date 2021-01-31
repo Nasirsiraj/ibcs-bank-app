@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
 import { CreateBankAccountComponent } from './create-bank-account/create-bank-account.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
-
-
+import {RoutingComponents} from "../app-routing.module";
+import {MaterialModule} from "../material/material.module";
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    ErrorPageComponent,
     CreateBankAccountComponent,
     FooterComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    RoutingComponents
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    MaterialModule
+  ],
+  exports: []
 })
 export class ComponentModule { }
