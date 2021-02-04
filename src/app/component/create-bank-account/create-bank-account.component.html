@@ -1,1 +1,134 @@
-<p>create-bank-account works!</p>
+<div class="container">
+  <h1>Enter client info</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <form [formGroup]="clientForm">
+<!--    id-->
+<!--    name-->
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        type="text"
+        name="name"
+        matInput
+        formControlName="name"
+        placeholder="name"
+      />
+      <mat-error *ngIf="name && name.invalid && name.touched">
+        name is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    nid-->
+    <mat-form-field appearance="fill">
+      <mat-label>NID</mat-label>
+      <input
+        type="number"
+        name="nid"
+        matInput
+        formControlName="nid"
+        placeholder="nid"
+      />
+      <mat-error *ngIf="nid && nid.invalid && nid.touched">
+        nid no is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    address-->
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input
+        type="text"
+        name="address"
+        matInput
+        formControlName="address"
+        placeholder="address"
+      />
+      <mat-error *ngIf="address && address.invalid && address.touched">
+        address is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    age-->
+    <mat-form-field appearance="fill">
+      <mat-label>Age</mat-label>
+      <input
+        type="number"
+        name="age"
+        matInput
+        formControlName="age"
+        placeholder="age"
+      />
+      <mat-error *ngIf="age && age.invalid && age.touched">
+        age is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    gender-->
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <input
+        type="text"
+        name="gender"
+        matInput
+        formControlName="gender"
+        placeholder="gender"
+      />
+      <mat-error *ngIf="gender && gender.invalid && gender.touched">
+        gender is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    email-->
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        name="email"
+        matInput
+        formControlName="email"
+        placeholder="email"
+      />
+      <mat-error *ngIf="email && email.invalid && email.touched">
+        email is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    password-->
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        name="password"
+        matInput
+        formControlName="password"
+        placeholder="password"
+      />
+      <mat-error *ngIf="password && password.invalid && password.touched">
+        password is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    balance-->
+    <mat-form-field appearance="fill">
+      <mat-label>Initial balance</mat-label>
+      <input
+        type="number"
+        name="balance"
+        matInput
+        formControlName="balance"
+        placeholder="balance"
+      />
+      <mat-error *ngIf="balance && balance.invalid && balance.touched">
+        initial balance is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    create account button-->
+    <button mat-raised-button
+            (click)="onSubmit(clientForm.value)"
+            [disabled]="clientForm.invalid"
+            color="primary">Create Account</button>
+  </form>
+  <br><br>
+</div>

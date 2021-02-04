@@ -1,7 +1,7 @@
 .toolbar{
   padding: 0px;
   margin: 0px;
-  background-color: mediumslateblue;
+  //background-color: mediumslateblue;
 
   .divider{
     flex: 1 1 0;
@@ -15,5 +15,6 @@
     width: 200px;
   }
   .main-content{
+    padding: 5%;
   }
 }

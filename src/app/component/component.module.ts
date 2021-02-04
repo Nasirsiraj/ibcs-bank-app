@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import {AppRoutingModule, RoutingComponents} from "../app-routing.module";
 import {MaterialModule} from "../material/material.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import {MaterialModule} from "../material/material.module";
   imports: [
     CommonModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class ComponentModule { }
