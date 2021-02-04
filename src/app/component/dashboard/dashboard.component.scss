@@ -1,10 +1,7 @@
-.container{
-  padding: 0px;
-  margin: 0px;
-}
 .toolbar{
   padding: 0px;
   margin: 0px;
+  background-color: mediumslateblue;
 
   .divider{
     flex: 1 1 0;
@@ -15,10 +12,8 @@
   margin: 0px;
   height: 100vh;
   .sidenav{
-    background-color: red;
     width: 200px;
   }
   .main-content{
-    background-color: green;
   }
 }

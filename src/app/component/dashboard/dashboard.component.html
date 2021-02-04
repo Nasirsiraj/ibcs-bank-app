@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="toolbar">
+<mat-toolbar color="" class="toolbar">
   <button mat-icon-button>
     <mat-icon (click)="toogleSidenav()">menu</mat-icon>
   </button>
@@ -12,6 +12,10 @@
   </button>
 </mat-toolbar>
 <mat-drawer-container class="dashboard">
-  <mat-drawer mode="side" [opened]="sidenavOpened" class="sidenav">Drawer content</mat-drawer>
+  <mat-drawer mode="side" [opened]="sidenavOpened" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="." *ngFor="let navlink of navLinkList">{{navlink}}</a>
+    </mat-nav-list>
+  </mat-drawer>
   <mat-drawer-content class="main-content">Main content</mat-drawer-content>
 </mat-drawer-container>
