@@ -131,6 +131,7 @@
   },
   "defaultProject": "ibcs-bank-app",
   "cli": {
+     "analytics": false,
     "defaultCollection": "@ngrx/schematics"
   }
 }
