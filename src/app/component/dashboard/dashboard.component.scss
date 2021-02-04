@@ -2,3 +2,23 @@
   padding: 0px;
   margin: 0px;
 }
+.toolbar{
+  padding: 0px;
+  margin: 0px;
+
+  .divider{
+    flex: 1 1 0;
+  }
+}
+.dashboard {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  .sidenav{
+    background-color: red;
+    width: 200px;
+  }
+  .main-content{
+    background-color: green;
+  }
+}

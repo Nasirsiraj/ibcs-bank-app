@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   constructor() { }
+  sidenavOpened = false;
 
   ngOnInit(): void {
+  }
+  toogleSidenav(): void{
+      this.sidenavOpened = !this.sidenavOpened;
   }
 
 }

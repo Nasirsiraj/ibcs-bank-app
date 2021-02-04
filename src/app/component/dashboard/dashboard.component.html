@@ -1,4 +1,17 @@
-<div class="container">
-
-
-</div>
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button>
+    <mat-icon (click)="toogleSidenav()">menu</mat-icon>
+  </button>
+  <span>IBCS-Bank</span>
+  <span class="divider"></span>
+  <button mat-icon-button>
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-drawer-container class="dashboard">
+  <mat-drawer mode="side" [opened]="sidenavOpened" class="sidenav">Drawer content</mat-drawer>
+  <mat-drawer-content class="main-content">Main content</mat-drawer-content>
+</mat-drawer-container>
