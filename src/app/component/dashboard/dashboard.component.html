@@ -13,8 +13,10 @@
 </mat-toolbar>
 <mat-drawer-container class="dashboard">
   <mat-drawer mode="side" [opened]="sidenavOpened" class="sidenav">
-    <mat-nav-list>
-      <a mat-list-item routerLink="." *ngFor="let navlink of navLinkList">{{navlink}}</a>
+    <mat-nav-list *ngFor="let nlink of navLinkList | keyvalue">
+      <a mat-list-item routerLink="{{nlink.value.link}}">
+        {{nlink.value.title}}
+      </a>
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content class="main-content">
