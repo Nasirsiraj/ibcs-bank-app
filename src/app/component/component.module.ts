@@ -6,6 +6,7 @@ import {MaterialModule} from "../material/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CashInComponent } from './cash-in/cash-in.component';
 import { CashOutComponent } from './cash-out/cash-out.component';
+import { SendMoneyComponent } from './send-money/send-money.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { CashOutComponent } from './cash-out/cash-out.component';
     RoutingComponents,
     CashInComponent,
     CashOutComponent,
+    SendMoneyComponent,
   ],
   exports: [
     FooterComponent
