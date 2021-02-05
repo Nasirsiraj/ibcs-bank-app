@@ -4,11 +4,13 @@ import { FooterComponent } from './footer/footer.component';
 import {AppRoutingModule, RoutingComponents} from "../app-routing.module";
 import {MaterialModule} from "../material/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    RoutingComponents
+    RoutingComponents,
+    ContactComponent
   ],
   exports: [
     FooterComponent
