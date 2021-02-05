@@ -1,1 +1,12 @@
-<p>contact works!</p>
+<div class="container">
+  <h1>Contact us</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  {{lorem}}
+  <br><br>
+  {{lorem}}
+  <br><br>
+  <mat-nav-list *ngFor="let link of contactList | keyvalue">
+    <a href="{{link.value}}" target="_blank" mat-list-item>{{link.key}}</a>
+  </mat-nav-list>
+</div>
