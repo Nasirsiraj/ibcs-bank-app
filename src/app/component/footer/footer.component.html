@@ -1,8 +1,22 @@
 <div class="container">
-  <div class="footer">
-    <div class="footer-content"></div>
+  <div class="about">
+    <h1>IBCS Bank</h1>
+    <br>
+    <p>
+      {{about}}
+    </p>
   </div>
-  <div class="footer-end">
-    <h1>@copy-2021</h1>
+  <div class="service">
+    <h1>Our Services</h1>
+    <ul *ngFor="let service of services">
+      <li>{{service}}</li>
+    </ul>
+  </div>
+  <div class="contact">
+    <h1>Contact Us</h1>
+    <ul *ngFor="let contact of contacts">
+      <li>{{contact}}</li>
+    </ul>
   </div>
 </div>
+<div class="footer"><h4 align="center">@copy-2021</h4></div>
