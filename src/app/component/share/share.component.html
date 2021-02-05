@@ -1,1 +1,26 @@
-<p>share works!</p>
+<div class="container">
+  <h1>Share our service</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <form [formGroup]="shareForm">
+    <mat-form-field>
+      <mat-label>Write your thought</mat-label>
+      <textarea
+        type="textarea"
+        matInput
+        formControlName="message"
+        placeholder="Ex. It makes me feel..."></textarea>
+      <mat-error *ngIf="message && message.invalid && message.touched">
+        required
+      </mat-error>
+    </mat-form-field>
+    <br><br><br>
+    <button mat-raised-button [matMenuTriggerFor]="menu">Share</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [disabled]="shareForm.invalid">On Gmail</button>
+      <button mat-menu-item [disabled]="shareForm.invalid">On FaceBook</button>
+      <button mat-menu-item [disabled]="shareForm.invalid">On Twitter</button>
+      <button mat-menu-item [disabled]="shareForm.invalid">On LinkedIn</button>
+    </mat-menu>
+  </form>
+</div>

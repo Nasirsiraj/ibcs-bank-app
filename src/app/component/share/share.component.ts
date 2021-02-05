@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-share',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShareComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
+  shareForm = this.formBuilder.group({
+    message: ['', [Validators.required]]
+  })
 
   ngOnInit(): void {
   }
 
+  get message(){
+    return this.shareForm.get('message')
+  }
 }
