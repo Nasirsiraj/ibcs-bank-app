@@ -28,5 +28,6 @@ export const RoutingComponents = [
   DashboardComponent,
   ErrorPageComponent,
   CreateBankAccountComponent,
-  ContactComponent
+  ContactComponent,
+  HelpComponent
 ]

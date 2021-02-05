@@ -1,1 +1,44 @@
-<p>help works!</p>
+<div class="container">
+  <h1>Help</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+
+  <mat-vertical-stepper>
+    <mat-step>
+      <ng-template matStepLabel>{{helpOption.get(1)}}</ng-template>
+      <br><br>
+      <p>
+        {{lorem}}
+      </p>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{helpOption.get(2)}}</ng-template>
+      <br><br>
+      <p>
+        {{lorem}}
+      </p>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{helpOption.get(3)}}</ng-template>
+      <br><br>
+      <p>
+        {{lorem}}
+      </p>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{helpOption.get(4)}}</ng-template>
+      <br><br>
+      <p>
+        {{lorem}}
+      </p>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{helpOption.get(5)}}</ng-template>
+      <br><br>
+      <p>
+        {{lorem}}
+      </p>
+    </mat-step>
+
+  </mat-vertical-stepper>
+</div>
