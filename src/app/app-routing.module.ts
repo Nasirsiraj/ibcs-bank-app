@@ -5,6 +5,7 @@ import { ErrorPageComponent } from "./component/error-page/error-page.component"
 import {CreateBankAccountComponent} from "./component/create-bank-account/create-bank-account.component";
 import {ContactComponent} from "./component/contact/contact.component";
 import {HelpComponent} from "./component/help/help.component";
+import {ShareComponent} from "./component/share/share.component";
 
 const routes: Routes = [
   {path: "", redirectTo: "dashboard", pathMatch: "full"},
@@ -13,6 +14,7 @@ const routes: Routes = [
       {path: 'create-account', component: CreateBankAccountComponent},
       {path: 'contact', component: ContactComponent},
       {path: 'help', component: HelpComponent},
+      {path: 'share', component: ShareComponent},
       {path: '**', redirectTo: 'create-account'}
     ]},
   {path: "error", component: ErrorPageComponent},
@@ -29,5 +31,6 @@ export const RoutingComponents = [
   ErrorPageComponent,
   CreateBankAccountComponent,
   ContactComponent,
-  HelpComponent
+  HelpComponent,
+  ShareComponent
 ]
