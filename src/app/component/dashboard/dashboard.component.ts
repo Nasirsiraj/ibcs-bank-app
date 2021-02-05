@@ -11,11 +11,12 @@ export class DashboardComponent implements OnInit {
   sidenavOpened = true
   navLinkList = new Map([
     [1, {title: 'Create Account', link: '/dashboard/create-account'}],
-    [2, {title: 'Cash In', link: '/dashboard'}],
-    [3, {title: 'Cash Out', link: '/dashboard'}],
-    [4, {title: 'Send Money', link: '/dashboard'}],
-    [5, {title: 'Contact', link: '/dashboard/contact'}],
-    [6, {title: 'Help', link: '/dashboard/help'}],
+    [2, {title: 'Check Balance', link: '/dashboard/check-balance'}],
+    [3, {title: 'Cash In', link: '/dashboard/cash-in'}],
+    [4, {title: 'Cash Out', link: '/dashboard/cash-out'}],
+    [5, {title: 'Send Money', link: '/dashboard/send-money'}],
+    [6, {title: 'Contact', link: '/dashboard/contact'}],
+    [7, {title: 'Help', link: '/dashboard/help'}],
     [8, {title: 'Share', link: '/dashboard/share'}],
     [9, {title: 'Settings', link: '/dashboard/settings'}]
   ])
