@@ -3,21 +3,98 @@
   <mat-divider></mat-divider>
   <br><br>
   <form [formGroup]="sendMoneyForm">
-    <mat-vertical-stepper>
+    <mat-vertical-stepper linear>
       <mat-step>
         <ng-template matStepLabel>
           Sender bank info
         </ng-template>
+        <br>
+<!--        nid-->
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your bank account no</mat-label>
+          <input
+            type="number"
+            name="nid"
+            matInput
+            formControlName="nid"
+            placeholder="account no"
+          />
+          <mat-error *ngIf="nid && nid.invalid && nid.touched">
+            account no is required
+          </mat-error>
+        </mat-form-field>
+        <br><br>
+
+<!--        password-->
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input
+            type="password"
+            name="password"
+            matInput
+            formControlName="password"
+            placeholder="password"
+          />
+          <mat-error *ngIf="password && password.invalid && password.touched">
+            password is required
+          </mat-error>
+        </mat-form-field>
+        <br>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>
           Receiver bank info
         </ng-template>
+        <br>
+
+<!--        receiverNid-->
+        <mat-form-field appearance="fill">
+          <mat-label>Enter receiver account no</mat-label>
+          <input
+            type="number"
+            name="receiverNid"
+            matInput
+            formControlName="receiverNid"
+            placeholder="account no"
+          />
+          <mat-error *ngIf="receiverNid && receiverNid.invalid && receiverNid.touched">
+            account no is required
+          </mat-error>
+        </mat-form-field>
+        <br>
+
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>
           Cash amount
         </ng-template>
+        <br>
+
+<!--        balance-->
+        <mat-form-field appearance="fill">
+          <mat-label>Enter cash amount</mat-label>
+          <input
+            type="number"
+            name="balance"
+            matInput
+            formControlName="balance"
+            placeholder="cash amount"
+          />
+          <mat-error *ngIf="balance && balance.invalid && balance.touched">
+            cash amount is required
+          </mat-error>
+        </mat-form-field>
+        <br><br>
+
+<!--        submit button-->
+        <button
+          mat-raised-button
+          (click)="onSubmit(sendMoneyForm.value)"
+          [disabled]="sendMoneyForm.invalid"
+          color="primary"
+          >Send</button>
+
+
       </mat-step>
     </mat-vertical-stepper>
   </form>
