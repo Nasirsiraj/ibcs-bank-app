@@ -1,1 +1,24 @@
-<p>send-money works!</p>
+<div class="container">
+  <h1>Enter your info</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <form [formGroup]="sendMoneyForm">
+    <mat-vertical-stepper>
+      <mat-step>
+        <ng-template matStepLabel>
+          Sender bank info
+        </ng-template>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>
+          Receiver bank info
+        </ng-template>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>
+          Cash amount
+        </ng-template>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>
+</div>
