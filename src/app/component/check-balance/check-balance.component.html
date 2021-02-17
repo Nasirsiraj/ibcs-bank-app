@@ -1,1 +1,46 @@
-<p>check-balance works!</p>
+<div class="container">
+  <h1>Enter your info</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <form [formGroup]="checkBalanceForm">
+<!--    nid-->
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your account no</mat-label>
+      <input
+        type="number"
+        name="nid"
+        matInput
+        formControlName="nid"
+        placeholder="account no"
+      />
+      <mat-error *ngIf="nid && nid.invalid && nid.touched">
+        account no is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+
+<!--    password-->
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input
+        type="password"
+        name="password"
+        matInput
+        formControlName="password"
+        placeholder="password"
+      />
+      <mat-error *ngIf="password && password.invalid && password.touched">
+        password is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+
+<!--    submit button-->
+    <button
+      mat-raised-button
+      [disabled]="checkBalanceForm.invalid"
+      (click)="onSubmit(checkBalanceForm.value)"
+      color="primary"
+      >Check Balance</button>
+  </form>
+</div>
