@@ -1,1 +1,61 @@
-<p>cash-in works!</p>
+<div class="container">
+  <h1>Enter your info</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <form [formGroup]="cashInForm">
+<!--    nid-->
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your bank account no</mat-label>
+      <input
+        type="number"
+        name="nid"
+        matInput
+        formControlName="nid"
+        placeholder="account no"
+      />
+      <mat-error *ngIf="nid && nid.invalid && nid.touched">
+        account no is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+
+<!--    password-->
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input
+        type="password"
+        name="password"
+        matInput
+        formControlName="password"
+        placeholder="password"
+      />
+      <mat-error *ngIf="password && password.invalid && password.touched">
+        password is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+<!--    balance-->
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your cash amount </mat-label>
+      <input
+        type="number"
+        name="balance"
+        matInput
+        formControlName="balance"
+        placeholder="cash amount"
+      />
+      <mat-error *ngIf="balance && balance.invalid && balance.touched">
+        cash amount is required
+      </mat-error>
+    </mat-form-field>
+    <br><br>
+
+<!--    cash in button-->
+    <button
+      mat-raised-button
+      (click)="onSubmit(cashInForm.value)"
+      [disabled]="cashInForm.invalid"
+      color="primary"
+    >Cash In</button>
+  </form>
+</div>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ClientService} from "../../service/client.service";
 import {Client} from "../../model/client.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-create-bank-account',
@@ -12,7 +13,8 @@ export class CreateBankAccountComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private matSnackBar: MatSnackBar
   ) { }
 
   clientForm = this.formBuilder.group({
@@ -28,7 +30,18 @@ export class CreateBankAccountComponent implements OnInit {
   })
 
   onSubmit(client: Client): void{
-    console.log(client)
+    this.clientService.postOneClient(client).subscribe(
+      (response => {
+        this.matSnackBar.open('Account created', 'Done', {
+          duration: 500
+        })
+      }),
+      (error => {
+        this.matSnackBar.open('Failed', 'Close', {
+          duration: 500
+        })
+      })
+    )
     this.clientForm.reset()
   }
   ngOnInit(): void {
