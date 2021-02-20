@@ -20,7 +20,9 @@
             placeholder="account no"
           />
           <mat-error *ngIf="nid && nid.invalid && nid.touched">
-            account no is required
+            <span *ngIf="nid.hasError('required')">account no is required</span>
+            <span *ngIf="nid.hasError('min')">minimum 5 digit required</span>
+            <span *ngIf="nid.hasError('max')">maximum 10 digit required</span>
           </mat-error>
         </mat-form-field>
         <br><br>
@@ -36,7 +38,9 @@
             placeholder="password"
           />
           <mat-error *ngIf="password && password.invalid && password.touched">
-            password is required
+            <span *ngIf="password.hasError('required')">password is required</span>
+            <span *ngIf="password.hasError('minlength')">minimum 6 character required</span>
+            <span *ngIf="password.hasError('maxlength')">maximum 10 character required</span>
           </mat-error>
         </mat-form-field>
         <br>
@@ -58,7 +62,9 @@
             placeholder="account no"
           />
           <mat-error *ngIf="receiverNid && receiverNid.invalid && receiverNid.touched">
-            account no is required
+            <span *ngIf="receiverNid.hasError('required')">account no is required</span>
+            <span *ngIf="receiverNid.hasError('min')">minimum 5 digit required</span>
+            <span *ngIf="receiverNid.hasError('max')">maximum 10 digit required</span>
           </mat-error>
         </mat-form-field>
         <br>
@@ -81,7 +87,15 @@
             placeholder="cash amount"
           />
           <mat-error *ngIf="balance && balance.invalid && balance.touched">
-            cash amount is required
+        <span *ngIf="balance.hasError('required')">
+          balance is required
+        </span>
+            <span *ngIf="balance.hasError('min')">
+          minimum 100 Tk required
+        </span>
+            <span *ngIf="balance.hasError('max')">
+          maximum 100000000 Tk is required
+        </span>
           </mat-error>
         </mat-form-field>
         <br><br>

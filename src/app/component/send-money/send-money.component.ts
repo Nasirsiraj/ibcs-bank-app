@@ -12,10 +12,10 @@ export class SendMoneyComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { }
   sendMoneyForm = this.formBuilder.group({
-    nid: [null, [Validators.required]],
-    password: [null, [Validators.required]],
-    receiverNid: [null, [Validators.required]],
-    balance: [null, [Validators.required]]
+    nid: [null, [Validators.required, Validators.min(10000), Validators.max(9999999999)]],
+    password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+    receiverNid: [null, [Validators.required, Validators.min(10000), Validators.max(9999999999)]],
+    balance: [null, [Validators.required, Validators.min(100), Validators.max(100000000)]]
   })
 
   ngOnInit(): void {

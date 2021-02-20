@@ -15,8 +15,8 @@
       />
       <mat-error *ngIf="nid && nid.invalid && nid.touched">
         <span *ngIf="nid.hasError('required')">account no is required</span>
-        <span *ngIf="nid.hasError('min')">minimum 5 character required</span>
-        <span *ngIf="nid.hasError('max')">maximum 10 character required</span>
+        <span *ngIf="nid.hasError('min')">minimum 5 digit required</span>
+        <span *ngIf="nid.hasError('max')">maximum 10 digit required</span>
       </mat-error>
     </mat-form-field>
     <br><br>
