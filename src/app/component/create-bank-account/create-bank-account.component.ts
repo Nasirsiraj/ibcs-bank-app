@@ -19,14 +19,14 @@ export class CreateBankAccountComponent implements OnInit {
 
   clientForm = this.formBuilder.group({
     id: [null],
-    name: ['', [Validators.required]],
-    nid: [null, [Validators.required]],
-    address: ['', [Validators.required]],
-    age: [null, [Validators.required]],
-    gender: ['', [Validators.required]],
-    email: ['', [Validators.required]],
-    password: ['', [Validators.required]],
-    balance: [null, [Validators.required]]
+    name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+    nid: [null, [Validators.required, Validators.min(10000), Validators.max(9999999999)]],
+    address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+    age: [null, [Validators.required, Validators.min(18), Validators.max(150)]],
+    gender: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(6)]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+    balance: [null, [Validators.required, Validators.min(5000), Validators.max(100000000)]]
   })
 
   onSubmit(client: Client): void{

@@ -15,7 +15,15 @@
         placeholder="name"
       />
       <mat-error *ngIf="name && name.invalid && name.touched">
-        name is required
+        <span *ngIf="name.hasError('required')">
+          name is required
+        </span>
+        <span *ngIf="name.hasError('minlength')">
+          minimum 3 character required
+        </span>
+        <span *ngIf="name.hasError('maxlength')">
+          maximum 20 character required
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -30,7 +38,15 @@
         placeholder="nid"
       />
       <mat-error *ngIf="nid && nid.invalid && nid.touched">
-        nid no is required
+        <span *ngIf="nid.hasError('required')">
+          nid is required
+        </span>
+        <span *ngIf="nid.hasError('min')">
+          minimum 5 digit required
+        </span>
+        <span *ngIf="nid.hasError('max')">
+          maximum 10 digit required
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -45,7 +61,15 @@
         placeholder="address"
       />
       <mat-error *ngIf="address && address.invalid && address.touched">
-        address is required
+        <span *ngIf="address.hasError('required')">
+          address is required
+        </span>
+        <span *ngIf="address.hasError('minlength')">
+          minimum 3 character required
+        </span>
+        <span *ngIf="address.hasError('maxlength')">
+          maximum 20 character required
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -60,7 +84,15 @@
         placeholder="age"
       />
       <mat-error *ngIf="age && age.invalid && age.touched">
-        age is required
+        <span *ngIf="age.hasError('required')">
+          age is required
+        </span>
+        <span *ngIf="age.hasError('min')">
+          minimum 18 years required
+        </span>
+        <span *ngIf="age.hasError('max')">
+          maximum 150 years required
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -75,7 +107,15 @@
         placeholder="gender"
       />
       <mat-error *ngIf="gender && gender.invalid && gender.touched">
-        gender is required
+        <span *ngIf="gender.hasError('required')">
+          gender is required
+        </span>
+        <span *ngIf="gender.hasError('minlength')">
+          minimum 4 character required
+        </span>
+        <span *ngIf="gender.hasError('maxlength')">
+          maximum 6 character required
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -90,7 +130,12 @@
         placeholder="email"
       />
       <mat-error *ngIf="email && email.invalid && email.touched">
-        email is required
+        <span *ngIf="email.hasError('required')">
+          email is required
+        </span>
+        <span *ngIf="email.hasError('email')">
+          invalid email
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -105,7 +150,15 @@
         placeholder="password"
       />
       <mat-error *ngIf="password && password.invalid && password.touched">
-        password is required
+        <span *ngIf="password.hasError('required')">
+          password is required
+        </span>
+        <span *ngIf="password.hasError('minlength')">
+          minimum 6 character required
+        </span>
+        <span *ngIf="password.hasError('maxlength')">
+          maximum 10 character required
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -120,7 +173,15 @@
         placeholder="balance"
       />
       <mat-error *ngIf="balance && balance.invalid && balance.touched">
-        initial balance is required
+        <span *ngIf="balance.hasError('required')">
+          initial balance is required
+        </span>
+        <span *ngIf="balance.hasError('min')">
+          minimum 5000 is required
+        </span>
+        <span *ngIf="balance.hasError('maximum')">
+          maximum 100000000 is required
+        </span>
       </mat-error>
     </mat-form-field>
     <br><br>

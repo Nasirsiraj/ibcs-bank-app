@@ -15,8 +15,8 @@
       />
       <mat-error *ngIf="nid && nid.invalid && nid.touched">
         <span *ngIf="nid.hasError('required')">account no is required</span>
-        <span *ngIf="nid.hasError('min')">account no should minimum 5 character</span>
-        <span *ngIf="nid.hasError('max')">account no should maximum 10 character</span>
+        <span *ngIf="nid.hasError('min')">minimum 5 character required</span>
+        <span *ngIf="nid.hasError('max')">maximum 10 character required</span>
       </mat-error>
     </mat-form-field>
     <br><br>
@@ -33,8 +33,8 @@
       />
       <mat-error *ngIf="password && password.invalid && password.touched">
         <span *ngIf="password.hasError('required')">password is required</span>
-        <span *ngIf="password.hasError('minlength')">password should minimum 6 character</span>
-        <span *ngIf="password.hasError('maxlength')">password should maximum 10 character</span>
+        <span *ngIf="password.hasError('minlength')">minimum 6 character required</span>
+        <span *ngIf="password.hasError('maxlength')">maximum 10 character required</span>
       </mat-error>
     </mat-form-field>
     <br><br>
