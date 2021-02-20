@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-check-balance',
@@ -13,8 +13,8 @@ export class CheckBalanceComponent implements OnInit {
   ) { }
 
   checkBalanceForm = this.formBuilder.group({
-    nid: [null, [Validators.required]],
-    password: [null, [Validators.required]]
+    nid: [null, [Validators.required, Validators.min(10000), Validators.max(9999999999)]],
+    password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
   })
   ngOnInit(): void {
   }
@@ -22,6 +22,11 @@ export class CheckBalanceComponent implements OnInit {
     console.log(value)
   }
 
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    const validator = Validators.min(5);
+    return validator(control);
+  }
   // getters
   get nid(){
     return this.checkBalanceForm.get('nid')
