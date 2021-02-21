@@ -22,6 +22,10 @@ export class ClientService {
   public getClientById(id: number): Observable<Client | null>{
     return this.httpClient.get<Client | null>(`${this.apiUrl}/client/${id}`)
   }
+  // get client by nid
+  public getClientByNid(nid: number): Observable<Client | null>{
+    return this.httpClient.get<Client | null>(`${this.apiUrl}/clientNid/${nid}`)
+  }
   // post all client
   public postAllClient(clients: Client[]): Observable<Client[]>{
     return this.httpClient.post<Client[]>(`${this.apiUrl}/clients`, clients);
@@ -58,4 +62,9 @@ export class ClientService {
   public updateClientByObj(client: Client): Observable<Client | null>{
     return this.httpClient.put<Client | null>(`${this.apiUrl}/client`, client);
   }
+
+  // cash in
+  // cash out
+
+
 }
