@@ -28,6 +28,8 @@ export class CreateBankAccountComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
     balance: [null, [Validators.required, Validators.min(5000), Validators.max(100000000)]]
   })
+  randomstring = Math.random().toString(36).slice(-8);
+
 
   onSubmit(client: Client): void{
     this.clientService.postOneClient(client).subscribe(

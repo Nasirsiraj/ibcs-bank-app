@@ -105,7 +105,12 @@
         matInput
         formControlName="gender"
         placeholder="gender"
+        [matAutocomplete]="suggestion"
       />
+      <mat-autocomplete autoActiveFirstOption #suggestion="matAutocomplete">
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+      </mat-autocomplete>
       <mat-error *ngIf="gender && gender.invalid && gender.touched">
         <span *ngIf="gender.hasError('required')">
           gender is required
@@ -148,7 +153,11 @@
         matInput
         formControlName="password"
         placeholder="password"
+        [matAutocomplete]="autoPassword"
       />
+      <mat-autocomplete autoActiveFirstOption #autoPassword="matAutocomplete">
+        <mat-option value="{{randomstring}}">{{randomstring}}</mat-option>
+      </mat-autocomplete>
       <mat-error *ngIf="password && password.invalid && password.touched">
         <span *ngIf="password.hasError('required')">
           password is required
