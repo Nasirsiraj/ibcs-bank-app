@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isSubmitted">
   <h1>Enter your info</h1>
   <mat-divider></mat-divider>
   <br><br>
@@ -47,4 +47,27 @@
       color="primary"
       >Check Balance</button>
   </form>
+</div>
+<div class="failed" *ngIf="isFailed">
+  <h1 align="center">{{feedbackMessage}}</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="refreshPage()">
+    Try Again
+  </button>
+</div>
+<div class="success" *ngIf="isSucceed && client">
+  <h1 align="center">{{feedbackMessage}}</h1>
+  <h1 align="center">Your current balance: {{client?.balance}}</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="goToCashOut()">
+    CashOut Now
+  </button>
 </div>

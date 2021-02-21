@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angular/forms";
+import {ClientService} from "../../service/client.service";
+import {Client} from "../../model/client.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-check-balance',
@@ -9,8 +12,15 @@ import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angul
 export class CheckBalanceComponent implements OnInit {
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private clientService: ClientService
   ) { }
+  client: Client | null = null
+  isFailed = false
+  isSucceed = false
+  isSubmitted = false
+  feedbackMessage = ""
 
   checkBalanceForm = this.formBuilder.group({
     nid: [null, [Validators.required, Validators.min(10000), Validators.max(9999999999)]],
@@ -19,13 +29,37 @@ export class CheckBalanceComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(value: any): void{
-    console.log(value)
+    this.isSubmitted = true
+    this.clientService.getClientByNid(value.nid).subscribe(
+      (response) => {
+        this.client  = response
+        if(this.client == null){
+          this.isFailed = true
+          this.isSucceed = false
+          this.feedbackMessage = "Account not found!"
+
+        } else if(this.client != null && this.client.password != value.password){
+          this.isFailed = true
+          this.isSucceed = false
+          this.feedbackMessage = "Wrong Password"
+
+        } else if(this.client != null && this.client.password == value.password){
+          this.isFailed = false
+          this.isSucceed = true
+          this.feedbackMessage = "(-_-)"
+        }
+      },
+      (error) => {
+        this.isSucceed = false
+        this.isFailed = true
+        this.feedbackMessage = "Error occurred!"
+      }
+    )
+    this.checkBalanceForm.reset()
   }
-
-
-  validate(control: AbstractControl): ValidationErrors | null {
-    const validator = Validators.min(5);
-    return validator(control);
+  refreshPage(): void{}
+  goToCashOut (): void{
+    this.router.navigate(['/dashboard/cash-out'])
   }
   // getters
   get nid(){
