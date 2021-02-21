@@ -15,7 +15,6 @@ export class CashInComponent implements OnInit {
     private clientService: ClientService
   ) { }
   isSubmitted = false
-  isAccountExist = false
   isFailed = false
   isSucceed = false
   feedbackMessage = ""
