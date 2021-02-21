@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isSubmitted">
   <h1>Enter client info</h1>
   <mat-divider></mat-divider>
   <br><br>
@@ -201,4 +201,42 @@
             color="primary">Create Account</button>
   </form>
   <br><br>
+</div>
+<div class="success" *ngIf="isSuccessed">
+  <h1 align="center">Account Created Successfully</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <div *ngIf="successedAccount">
+    <h2>Account no: {{successedAccount.nid}}</h2>
+    <br>
+    <h2>Password: {{successedAccount.password}}</h2>
+    <br>
+    <h2>Name: {{successedAccount.name}}</h2>
+    <br>
+    <h2>NID: {{successedAccount.nid}}</h2>
+    <br>
+    <h2>Address: {{successedAccount.address}}</h2>
+    <br>
+    <h2>Age: {{successedAccount.age}}</h2>
+    <br>
+    <h2>Gender: {{successedAccount.gender}}</h2>
+    <br>
+    <h2>Email: {{successedAccount.email}}</h2>
+    <br>
+    <h2>Balance: {{successedAccount.balance}}</h2>
+    <br>
+    <br><br>
+  </div>
+</div>
+<div class="failed" *ngIf="isFailed">
+  <br><br><br>
+  <h1 align="center">Account Creation Failed</h1>
+  <mat-divider></mat-divider>
+  <h2 align="center" *ngIf="isFailed">An account already exist on your NID: {{failedNid}}</h2>
+  <br><br><br>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="tryAgain()"
+  >Try By new NID</button>
 </div>

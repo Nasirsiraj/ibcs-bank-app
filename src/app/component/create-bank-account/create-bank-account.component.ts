@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ClientService} from "../../service/client.service";
 import {Client} from "../../model/client.model";
@@ -14,8 +14,13 @@ export class CreateBankAccountComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private clientService: ClientService,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
   ) { }
+  isSubmitted = false
+  isSuccessed = false
+  isFailed = false
+  successedAccount: Client | null= null
+  failedNid: number | null = null
 
   clientForm = this.formBuilder.group({
     id: [null],
@@ -32,20 +37,25 @@ export class CreateBankAccountComponent implements OnInit {
 
 
   onSubmit(client: Client): void{
+    this.isSubmitted = true
     this.clientService.postOneClient(client).subscribe(
       (response => {
-        this.matSnackBar.open('Account created', 'Done', {
-          duration: 500
-        })
+        this.isSuccessed = true
+        this.successedAccount = response
+        this.matSnackBar.open('Account created', 'Done', {})
       }),
       (error => {
-        this.matSnackBar.open('Failed', 'Close', {
-          duration: 500
-        })
+        this.isFailed = true
+        this.failedNid = client.nid
+        this.matSnackBar.open('Failed', 'Close', {})
       })
     )
     this.clientForm.reset()
   }
+  tryAgain(): void{
+    window.location.reload()
+  }
+
   ngOnInit(): void {
   }
 
