@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isSubmitted">
   <h1>Enter your info</h1>
   <mat-divider></mat-divider>
   <br><br>
@@ -112,4 +112,28 @@
       </mat-step>
     </mat-vertical-stepper>
   </form>
+</div>
+<div class="failed" *ngIf="isFailed && feedbackMessage">
+  <h1 align="center">Sending Failed.</h1>
+  <h1 align="center">{{feedbackMessage}}</h1>
+  <mat-divider></mat-divider>
+  <br><br>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="refreshPage()">
+    Try Again
+  </button>
+</div>
+<div class="success" *ngIf="isSucceed && feedbackMessage">
+  <h1 align="center">{{feedbackMessage}}</h1>
+  <br>
+  <mat-divider></mat-divider>
+  <br><br>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="refreshPage()">
+    Send Again
+  </button>
 </div>

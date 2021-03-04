@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ClientService} from "../../service/client.service";
 import {Client} from "../../model/client.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-cash-in',
@@ -12,7 +13,8 @@ export class CashInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private snackBar: MatSnackBar
   ) { }
   isSubmitted = false
   isFailed = false
@@ -39,10 +41,14 @@ export class CashInComponent implements OnInit {
           this.isFailed = true
           this.isSucceed = false
           this.feedbackMessage = "Account not found"
+          this.showSnackBar(this.feedbackMessage)
+
         }else if(this.client != null && this.client.password != value.password){
           this.feedbackMessage = "Wrong Password"
           this.isSucceed = false
           this.isFailed = true
+          this.showSnackBar(this.feedbackMessage)
+
         }else if(this.client != null && this.client.password == value.password){
           this.client.balance = this.client.balance + value.balance
           this.clientService.updateClientByObj(this.client).subscribe(
@@ -51,11 +57,15 @@ export class CashInComponent implements OnInit {
                 this.feedbackMessage = "CashIn successful!"
                 this.isSucceed = true
                 this.isFailed = false
+                this.showSnackBar(this.feedbackMessage)
+
               }
             },(error) => {
               this.feedbackMessage = "Error occurred!"
               this.isSucceed = false
               this.isFailed = true
+              this.showSnackBar(this.feedbackMessage)
+
             }
           )
         }
@@ -64,12 +74,17 @@ export class CashInComponent implements OnInit {
         this.isSucceed = false
         this.isFailed = true
         this.feedbackMessage = "Error occurred!"
+        this.showSnackBar(this.feedbackMessage)
+
       }
     )
     this.cashInForm.reset()
   }
   refreshPage(): void{
     window.location.reload()
+  }
+  showSnackBar(message: string): void{
+    this.snackBar.open(message, 'Close', {duration: 5000})
   }
   // getters
   get nid(){

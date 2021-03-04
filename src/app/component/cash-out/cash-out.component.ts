@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ClientService} from "../../service/client.service";
 import {Client} from "../../model/client.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-cash-out',
@@ -12,7 +13,8 @@ export class CashOutComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private snackBar: MatSnackBar
   ) { }
   isSubmitted = false
   isFailed = false
@@ -38,16 +40,19 @@ export class CashOutComponent implements OnInit {
           this.isSucceed = false
           this.isFailed = true
           this.feedbackMessage = "Account not found!"
+          this.showSnackBar(this.feedbackMessage)
 
         }else if(this.client != null && this.client.password != value.password){
           this.isSucceed = false
           this.isFailed = true
           this.feedbackMessage = "Wrong Password!"
+          this.showSnackBar(this.feedbackMessage)
 
         }else if((this.client != null && this.client.password == value.password) && (this.client.balance < value.balance)){
           this.isSucceed = false
           this.isFailed = true
           this.feedbackMessage = "Insufficient Balance"
+          this.showSnackBar(this.feedbackMessage)
 
         }else if((this.client != null && this.client.password == value.password) && (this.client.balance >= value.balance)){
           this.client.balance = this.client.balance - value.balance
@@ -58,16 +63,19 @@ export class CashOutComponent implements OnInit {
                 this.isFailed = false
                 this.isSucceed = true
                 this.feedbackMessage = "CashOut Successful!"
+                this.showSnackBar(this.feedbackMessage)
               }else{
                 this.isFailed = true
                 this.isSucceed = false
                 this.feedbackMessage = "Error occurred!"
+                this.showSnackBar(this.feedbackMessage)
               }
             },
             (error) => {
               this.isFailed = true
               this.isSucceed = false
               this.feedbackMessage = "Error occurred!"
+              this.showSnackBar(this.feedbackMessage)
             }
           )
         }
@@ -76,13 +84,16 @@ export class CashOutComponent implements OnInit {
         this.isSucceed = false
         this.isFailed = true
         this.feedbackMessage = "Error occurred!"
+        this.showSnackBar(this.feedbackMessage)
       }
     )
     this.cashOutForm.reset()
   }
-
   refreshPage(){
     window.location.reload()
+  }
+  showSnackBar(message: string): void{
+    this.snackBar.open(message, 'Close', {duration: 5000})
   }
 
   // getters

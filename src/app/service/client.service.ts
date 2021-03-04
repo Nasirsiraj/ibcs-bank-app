@@ -24,7 +24,7 @@ export class ClientService {
   }
   // get client by nid
   public getClientByNid(nid: number): Observable<Client | null>{
-    return this.httpClient.get<Client | null>(`${this.apiUrl}/clientNid/${nid}`)
+    return this.httpClient.get<Client | null>(`${this.apiUrl}/clientByNid/${nid}`)
   }
   // post all client
   public postAllClient(clients: Client[]): Observable<Client[]>{
