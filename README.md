@@ -1,27 +1,43 @@
 # IbcsBankApp
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
 
-## Development server
+## Create Account
+![Create Account](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/create-account.png?raw=true "Create Account")
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Check Balance
+![Check Balance](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/check-balance.png?raw=true "Check Balance")
 
-## Code scaffolding
+## Check Balance Successful
+![Check Balance Successful](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/check-balance-successful.png?raw=true "Check Balance Successful")
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Cash In
+![Cash In](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/cash-in.png?raw=true "Cash In")
 
-## Build
+## Cash In Successful
+![Cash In Successful](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/cash-in-successful.png?raw=true "Cash In Successful")
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Cash Out 
+![Cash Out](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/cash-out.png?raw=true "Cash Out")
 
-## Running unit tests
+## Cash Out Successful
+![Cash Out Successful](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/cash-out-successful.png?raw=true "Cash Out Successful")
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Send Money
+![Send Money](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/send-money.png?raw=true "Send Money")
 
-## Running end-to-end tests
+## Send Money Successful
+![Send Money Successful](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/send-money-successful.png?raw=true "Send Money Successful")
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Contact Us
+![Contact Us](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/contact-us.png?raw=true "Contact Us")
 
-## Further help
+## Help
+![Help](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/help.png?raw=true "Help")
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Share 
+![Share](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/share.png?raw=true "Share")
+
+## Settings 
+![Settings](https://github.com/Nasirsiraj/ibcs-bank-app/blob/master/src/assets/Screenshots/settings.png?raw=true "Settings")
+
+
